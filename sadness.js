@@ -23,12 +23,23 @@ var app = express();
 app.use('/', express.static(__dirname + '/public'));
 
 app.get('/go', function (req, res) {
+  console.log(req.query.un);
   var twitterUsername = req.query.un;
   var responseJSON = {};
 
 /* DO SHIT */
+  twitter.get('statuses/user_timeline', { screen_name: twitterUsername, count: 200 }, function(err, data, response) {
+    if(err){
+      res.send(err);
+      return;
+    }
 
-  res.send(responseJSON);
+    res.send(data.map(function(tweet){
+      return tweet.text;
+    }));
+  });
+
+  // res.send(responseJSON);
 });
 
 app.listen(3000, function () {
