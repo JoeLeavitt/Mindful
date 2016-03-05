@@ -1,0 +1,26 @@
+{
+  "name": "project-sadness",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sadness.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoeLeavitt/project-sadness.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoeLeavitt/project-sadness/issues"
+  },
+  "homepage": "https://github.com/JoeLeavitt/project-sadness#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "project-oxford": "^1.1.0",
+    "twit": "^2.2.2",
+    "unirest": "^0.4.2",
+    "watson-developer-cloud": "^1.2.5"
+  }
+}
