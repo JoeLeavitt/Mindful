@@ -13,10 +13,11 @@ var twitter = new TwitPackage ({
     access_token_secret: apiKeys.twitter.accessTokenSecret
 })
 
-var watson = WatsonPackage.authorization ({
+var watson = WatsonPackage.tone_analyzer ({
     username: apiKeys.watsonToneAnalyzer.username,
     password: apiKeys.watsonToneAnalyzer.password,
-    version: 'v1'
+    version: 'v3-beta',
+    version_date: '2016-02-11'
 })
 
 var app = express();
@@ -27,21 +28,61 @@ app.get('/go', function (req, res) {
   var twitterUsername = req.query.un;
   var responseJSON = {};
 
-/* DO SHIT */
   twitter.get('statuses/user_timeline', { screen_name: twitterUsername, count: 200 }, function(err, data, response) {
     if(err){
       res.send(err);
       return;
     }
 
-    res.send(data.map(function(tweet){
-      return tweet.text;
-    }));
-  });
+    var textData = data.map(function(tweet){
+        var text = tweet.text;
+        var time = tweet.created_at;
 
-  // res.send(responseJSON);
+        return {
+            text: text,
+            time: time
+        };
+    })
+
+    var watsonData = [];
+
+    var getWatsonData = function(currWatsonData) {
+        return new Promise(function(resolve, reject){
+            watson.tone({text: currWatsonData.text}, function(err, tone) {
+                var tones = tone.document_tone.tone_categories[0].tones;
+
+                var pair = {
+                    "sadness": {},
+                    "time": {}
+                }
+
+                for(var i = 0; i < tones.length; i++) {
+                    if(tones[i].tone_id == "sadness") {
+                        pair = {
+                            "sadness": tones[i].score,
+                            "time": currWatsonData.time
+                        }
+                        break;
+                    }
+                }
+                resolve(pair);
+            })
+        })
+    }
+
+    for(var i = 0; i < textData.length; i++) {
+         var temp = getWatsonData(textData[i]);
+         watsonData.push(temp);
+    }
+
+    Promise.all(watsonData).then(function(data){
+        res.send(data);
+    })
+
+  });
 });
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
+
