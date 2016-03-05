@@ -28,8 +28,9 @@ app.use('/', express.static(__dirname + '/public'));
 app.get('/go', function (req, res) {
   console.log(req.query.un);
   var twitterUsername = req.query.un;
-  var responseJSON = {};
-  var faceIdToImage = {};
+  var responseJSON = {
+    images:[]
+  };
 
   twitter.get('statuses/user_timeline', { screen_name: twitterUsername, count: 200 }, function(err, data, response) {
     if(err){
@@ -38,6 +39,11 @@ app.get('/go', function (req, res) {
     }
 
     var textData = data.map(function(tweet){
+        if(tweet.entities.media){
+          tweet.entities.media.forEach(function(media){
+            responseJSON.images.push({url:media.media_url_https,time:tweet.created_at});
+          });
+        }
         var text = tweet.text;
         var time = tweet.created_at;
 
@@ -79,7 +85,8 @@ app.get('/go', function (req, res) {
     }
 
     Promise.all(watsonData).then(function(data){
-        res.send(data);
+        responseJSON.data = data;
+        res.send(responseJSON);
     })
 
   });
@@ -108,7 +115,6 @@ app.get('/identify', function(req, res){
     for (var i = 0; i < response.length; i++) {
       if(overlap(response[i].faceRectangle, rec) > 90){
         targetFaceId = response[i].faceId;
-        console.log(targetFaceId);
         break;
       }
     }
@@ -120,8 +126,6 @@ app.get('/identify', function(req, res){
         analyzesGender: true,
         returnFaceId: true
       }).then(function(res){
-        console.log(res);
-        console.log(Array.isArray(res));
         res.forEach(function(face){
           faceIDs.push(face.faceId);
           faceRects[face.faceId] = face.faceRectangle;
@@ -129,13 +133,11 @@ app.get('/identify', function(req, res){
         });
       });
     })).then(function(){
-      console.log("hi")
       return faceAPI.face.similar(
         targetFaceId, {
           candidateFaces: faceIDs
         });
     }).then(function(res){
-      console.log(res);
       return Promise.all(res.map(function(face){
         var str = faceRects[face.faceId].left + ", " + faceRects[face.faceId].top + ", " + faceRects[face.faceId].width + ", " + faceRects[face.faceId].height;
 
@@ -151,7 +153,6 @@ app.get('/identify', function(req, res){
         });
       }));
     }).then(function(result){
-        console.log("DID" + JSON.stringify(result));
         res.send(result);
 
     }).catch(function(err){
