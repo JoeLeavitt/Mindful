@@ -1,5 +1,3 @@
-$(function(){
-
 //  (GET http://localhost:3000/go)
 
 function search(name) {
@@ -23,4 +21,3 @@ function search(name) {
     })
     }
 }
-})
