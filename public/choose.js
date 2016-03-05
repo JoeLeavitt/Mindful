@@ -1,3 +1,5 @@
+$(function(){
+
 var params = {};
 URI(window.location.href).query().split("&").forEach(function(pair){
   var keyVal = pair.split("=");
@@ -81,3 +83,4 @@ function recurse(arr, index){
       /* ... */
   });
 }
+})
