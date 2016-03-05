@@ -19,6 +19,7 @@
   "dependencies": {
     "express": "^4.13.4",
     "project-oxford": "^1.1.0",
+    "tracking": "^1.1.2",
     "twit": "^2.2.2",
     "unirest": "^0.4.2",
     "watson-developer-cloud": "^1.2.5"
