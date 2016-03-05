@@ -23,7 +23,21 @@ var watson = WatsonPackage.tone_analyzer ({
 })
 
 var app = express();
+
 app.use('/', express.static(__dirname + '/public'));
+
+app.get('/verifyUser', function(req, res){
+    var twitterUsername = req.query.un;
+
+    twitter.get('users/lookup', {screen_name: twitterUsername}, function(err,data,response) {
+        if(err){
+            res.send("False");
+        }
+        else {
+            res.send("True");
+        }
+    })
+})
 
 app.get('/go', function (req, res) {
   console.log(req.query.un);
