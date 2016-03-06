@@ -32,7 +32,10 @@ jQuery.ajax({
 });
 
 function recurse(arr, index){
-  if(index >= arr.images.length) return;
+  if(index >= arr.images.length){
+    var nav = "/show.html?data=" + JSON.stringify(arr);
+    window.location.href = nav;
+  }
   jQuery.ajax({
     url: "http://localhost:3000/check",
     type: "GET",
