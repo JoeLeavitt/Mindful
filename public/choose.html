@@ -3,11 +3,17 @@
     <title>Project Sadness</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.2/material.amber-orange.min.css" />
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
     <script defer src="https://code.getmdl.io/1.1.2/material.min.js"></script>
 
     <!-- Google fonts since Material UI just doesn't seem to care -->
@@ -19,39 +25,46 @@
 </head>
 
 <body>
+<<<<<<< HEAD
+<div class="se-pre-con"></div>
+
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
+=======
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" >
+    <header class="mdl-layout__header" id="sticky_header">
+        <div class="mdl-cell mdl-cell--12-col header" id="face-copy"></div>
+>>>>>>> f54f39ea7538e4b0f3d19211c05571ea32845382
     </header>
     <div class="mdl-layout__drawer">
     </div>
     <main class="mdl-layout__content">
         <div class="page-content">
             <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--4-col"></div>
-                <div class="mdl-cell mdl-cell--4-col header">Who is @?</div>
-                <div class="mdl-cell mdl-cell--4-col"></div>
-            </div>
-            <div class="mdl-grid">
                 <div id="image-rects-container" class="container mdl-cell mdl-cell--10">
-                    <img class="profile-picture" src="http://www.articlewritingsource.com/wp-content/uploads/2015/10/Get-more-the-men-women-and-children-of-a-particular-nation-community-or-ethnic-group.-to-stop-by-your-website.jpg" alt="">
+                    <!--<img class="profile-picture" src="http://www.articlewritingsource.com/wp-content/uploads/2015/10/Get-more-the-men-women-and-children-of-a-particular-nation-community-or-ethnic-group.-to-stop-by-your-website.jpg" alt="">-->
                 </div>
             </div>
         </div>
         <span>
             <div class="mdl-grid clickme">
                 <div class="mdl-cell mdl-cell--2-col mdl-cell--4-offset-desktop">
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    <button id="thatsnotrightbutton" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                         That's not right
                     </button>
                 </div>
                 <div class="mdl-cell mdl-cell--1-col"></div>
                 <div class="mdl-cell mdl-cell--2-col">
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    <button id="continuebutton" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                         Continue
                     </button>
                 </div>
             </div>
         </span>
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--4-col"></div>
+            <div class="mdl-cell mdl-cell--4-col"></div>
+        </div>
     </main>
 </div>
 <script src="choose.js"></script>
