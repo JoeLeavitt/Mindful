@@ -50,6 +50,9 @@ function recurse(arr, index){
       var container = document.getElementById('image-rects-container');
       if(data.length > 0){
         var img = document.createElement("img");
+
+        $("#image-rects-container").empty();
+
         img.id = "profile_picture";
         img.src = arr.images[index].url;
         img.classList.add("profile-picture");
