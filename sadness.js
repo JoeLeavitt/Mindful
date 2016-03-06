@@ -141,6 +141,7 @@ app.get('/identify', function(req, res){
 
   if(!url){
     res.send([]);
+    return;
   }
 
   faceAPI.face.detect({
