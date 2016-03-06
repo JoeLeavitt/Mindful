@@ -149,7 +149,10 @@ body{
     position: relative;
 }
 
-<<<<<<< HEAD
+#face-copy {
+    z-index: 10;
+}
+
 .no-js #loader { display: none;  }
 .js #loader { display: block; position: absolute; left: 100px; top: 0; }
 .se-pre-con {
@@ -161,8 +164,3 @@ body{
     z-index: 9999;
     background: url(./imgs/loader.gif) center no-repeat #fff;
 }
-=======
-#face-copy {
-    z-index: 10;
-}
->>>>>>> f54f39ea7538e4b0f3d19211c05571ea32845382
