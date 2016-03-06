@@ -117,8 +117,6 @@ app.get('/go', function (req, res) {
 
         relativeAvgDeviation = (avgSadness / total) * 100;
 
-        console.log(avgSadness);
-        console.log(relativeAvgDeviation);
         responseJSON.avg = avgSadness;
         responseJSON.stddev = relativeAvgDeviation;
 
