@@ -1,3 +1,6 @@
+var AVG;
+var DEVAVG;
+
 $(function () {
 
 var params = {};
@@ -25,24 +28,30 @@ jQuery.ajax({
     console.log(data);
 
     var allData = data.concat(params.data.data);
+    var thisAvg = params.data.avg;
+    var thisStdDev = params.data.stddev;
     $('#container').highcharts({
         chart: {
             zoomType: 'x'
         },
         title: {
-            text: 'USD to EUR exchange rate over time'
+            text: ''
         },
         subtitle: {
-            text: document.ontouchstart === undefined ?
-                    'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
         },
         xAxis: {
             type: 'datetime'
-        },
+         },
         yAxis: {
             title: {
                 text: 'Exchange rate'
-            }
+            },
+            plotLines: [{
+                color: 'red',
+                value: thisAvg,
+                width: '2',
+                zIndex: '2'
+            }]
         },
         legend: {
             enabled: false
