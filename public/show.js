@@ -72,11 +72,19 @@ jQuery.ajax({
         }]
     });
 
-    var panel = Math.ceil(100 - (params.data.avg / 25));
-
-    $('#container').fadeIn('slow');
-    $('#'+panel+'_panel').fadeIn('slow');
-
+    if(params.data.avg < 25) {
+        $('#4_panel').toggle();
+    }
+    else if(params.data.avg < 50) {
+        $('#3_panel').toggle();
+    }
+    else if(params.data.avg < 75) {
+        $('#2_panel').toggle();
+    }
+    else {
+        $('#1_panel').toggle();
+    }
+    
     console.log(allData);
 });
 
