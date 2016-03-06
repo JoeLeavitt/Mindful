@@ -48,6 +48,12 @@ jQuery.ajax({
                 width: '2',
                 zIndex: '2'
             }],
+            plotLines: [{
+                color: 'blue',
+                value: thisStdDev,
+                width: '2',
+                zIndex: '2'
+            }],
             min: 0,
             max: 1
         },
