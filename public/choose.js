@@ -36,12 +36,18 @@ document.getElementById('face-copy').innerHTML = "Click on @"+params.username;
 
 var activeNavBar = "";
 var rects = [];
+var faces = [];
 
 function recurse(arr, index){
   if(index >= arr.images.length){
     var nav = "/show.html?data=" + JSON.stringify(arr);
     window.location.href = nav;
   }
+
+    $("#image-rects-container").empty();
+    rects = [];
+    faces = [];
+
   jQuery.ajax({
     url: "http://localhost:3000/check",
     type: "GET",
@@ -67,14 +73,9 @@ function recurse(arr, index){
 
             data.forEach(function(face, index){
                 var rect = document.createElement("div");
-                rect.id = "rect" + index;
-                rect.style.position = "absolute";
-                rect.style.top = face.faceRectangle.top + document.getElementById("sticky_header").offsetHeight - 26;
-                rect.style.left = face.faceRectangle.left + (window.innerWidth / 4) - 26;
-                rect.style.width = face.faceRectangle.width + "px";
-                rect.style.height = face.faceRectangle.height + "px";
-                rect.style.borderStyle = "solid";
-                rect.style.borderWidth = "5px";
+
+                positionRect(rect, face);
+
                 rect.onclick = function(){
                     var rectObj = {
                         top: rect.style.top,
@@ -92,6 +93,7 @@ function recurse(arr, index){
                     rect.style.borderColor = "red";
                 }
                 rects.push(rect);
+                faces.push(face);
 
                 document.getElementById('image-rects-container').appendChild(rect);
             });
@@ -121,5 +123,24 @@ function recurse(arr, index){
   .always(function() {
       /* ... */
   });
+
+    function positionRect(rect, face) {
+        console.log(window.innerWidth, $("#profile_picture").position().left);
+        rect.id = "rect" + index;
+        rect.style.position = "absolute";
+        rect.style.top = face.faceRectangle.top + document.getElementById("sticky_header").offsetHeight - 26;
+        rect.style.left = face.faceRectangle.left + $("#profile_picture").position().left + 26;
+        rect.style.width = face.faceRectangle.width + "px";
+        rect.style.height = face.faceRectangle.height + "px";
+        rect.style.borderStyle = "solid";
+        rect.style.borderWidth = "5px";
+    }
+
+    $(window).resize(function() {
+       for(var i = 0; i < rects.length; i++) {
+           positionRect(rects[i], faces[i]);
+       }
+    });
+
 }
 })
