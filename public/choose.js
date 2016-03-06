@@ -67,6 +67,7 @@ function recurse(arr, index){
         img.id = "profile_picture";
         img.src = arr.images[index].url;
         img.classList.add("profile-picture");
+        img.classList.add("card-round");
         container.appendChild(img);
 
         window.setTimeout(function() {
@@ -87,10 +88,10 @@ function recurse(arr, index){
 
                     rects.forEach(function(r) {
                         console.log(r);
-                        r.style.borderColor = "black";
+                        r.style.borderColor = "#012644";
                     });
 
-                    rect.style.borderColor = "red";
+                    rect.style.borderColor = "#DF260A";
                 }
                 rects.push(rect);
                 faces.push(face);
@@ -136,6 +137,8 @@ function recurse(arr, index){
         rect.style.height = face.faceRectangle.height + "px";
         rect.style.borderStyle = "solid";
         rect.style.borderWidth = "5px";
+        rect.style.borderColor = "#012644";
+        rect.style.boxShadow = "0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)";
     }
 
     $(window).resize(function() {

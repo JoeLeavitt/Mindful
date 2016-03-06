@@ -151,6 +151,7 @@ body{
 
 #face-copy {
     z-index: 10;
+    line-height: 40px;
 }
 
 .no-js #loader { display: none;  }
@@ -163,4 +164,19 @@ body{
     height: 100%;
     z-index: 9999;
     background: url(./imgs/loader.gif) center no-repeat #fff;
+}
+
+.card-round {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+#sticky_header{
+  background-color: #012644;
+  color: white;
+}
+
+.mdl-button--accent.mdl-button--accent.mdl-button--raised, .mdl-button--accent.mdl-button--accent.mdl-button--fab{
+  background-color: rgb(255,193,7);
 }
