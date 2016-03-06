@@ -18,10 +18,13 @@
   "homepage": "https://github.com/JoeLeavitt/project-sadness#readme",
   "dependencies": {
     "express": "^4.13.4",
+    "highcharts": "^4.2.3",
+    "jquery": "^2.2.1",
     "project-oxford": "^1.1.0",
     "tracking": "^1.1.2",
     "twit": "^2.2.2",
     "unirest": "^0.4.2",
+    "urijs": "^1.17.1",
     "watson-developer-cloud": "^1.2.5"
   }
 }
