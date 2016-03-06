@@ -190,3 +190,8 @@ body{
   height: 200px;
   background-color: #155A76;
 }
+
+#show-header {
+  text-align: center;
+  color: white;
+}
