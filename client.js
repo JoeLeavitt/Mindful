@@ -8,7 +8,6 @@ function search(name) {
             },
         })
         .done(function(data) {
-        console.log(data);
 
         if(data == "True") {
             window.location.href = "/choose.html?username=" + name.value;
