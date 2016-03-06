@@ -77,20 +77,20 @@ function loadData() {
 
             if (params.data.avg*100 < 15) {
               console.log("we in here");
-                $('#4_panel').toggle();
-                $('#four').toggle();
+                $('#4_panel').addClass('load');
+                $('#four').addClass('load');
             }
             else if (params.data.avg*100 < 50) {
-                $('#3_panel').toggle();
-                $('#three').toggle();
+                $('#3_panel').addClass('load');
+                $('#three').addClass('load');
             }
             else if (params.data.avg*100 < 75) {
-                $('#2_panel').toggle();
-                $('#two').toggle();
+                $('#2_panel').addClass('load');
+                $('#two').addClass('load');
             }
             else {
-                $('#1_panel').toggle();
-                $('#one').toggle();
+                $('#1_panel').addClass('load');
+                $('#one').addClass('load');
             }
 
             console.log(allData);
