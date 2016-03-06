@@ -1,6 +1,3 @@
-var AVG;
-var DEVAVG;
-
 $(function () {
 
 var params = {};
@@ -24,7 +21,6 @@ jQuery.ajax({
     },
 })
 .done(function(data, textStatus, jqXHR) {
-    console.log("HTTP Request Succeeded: " + jqXHR.status);
     console.log(data);
 
     var allData = data.concat(params.data.data);

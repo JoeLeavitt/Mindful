@@ -58,6 +58,7 @@ function recurse(arr, index){
           rect.style.borderWidth = "5px";
           rect.onclick = function(){
             this.onclick = function(){};
+
             console.log(this.id);
             var rectObj = {
               top: rect.style.top,
@@ -65,8 +66,10 @@ function recurse(arr, index){
               width: rect.style.width,
               height: rect.style.height
             }
+
             var nav = "/show.html?url=" + arr.images[index].url + "&rec=" + JSON.stringify(rectObj) + "&data=" + JSON.stringify(arr);
             window.location.href = nav;
+
           }
 
           document.getElementById('image-rects-container').appendChild(rect);
@@ -77,13 +80,11 @@ function recurse(arr, index){
             document.getElementById('header').innerHTML = "Is this @"+params.username+"?";
         }
 
-        else {
-            document.getElementById('header').innerHTML = "Which one is @"+params.username+"?";
-        }
-
       }else{
         recurse(arr, index+1);
       }
+                $(".se-pre-con").fadeOut("slow");;
+
   })
   .fail(function(jqXHR, textStatus, errorThrown) {
       console.log("HTTP Request Failed");
