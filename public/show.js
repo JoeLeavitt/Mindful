@@ -10,6 +10,8 @@ URI(window.location.href).query().split("&").forEach(function(pair){
 
 console.log(params);
 
+$("#username").text('@' + params['user'] + '...' );
+
 function loadData() {
 
     jQuery.ajax({
