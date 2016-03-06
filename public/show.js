@@ -48,8 +48,7 @@ jQuery.ajax({
                 value: thisAvg,
                 width: '2',
                 zIndex: '2'
-            }],
-            plotLines: [{
+            }, {
                 color: 'blue',
                 value: thisStdDev,
                 width: '2',
