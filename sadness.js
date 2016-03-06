@@ -151,7 +151,7 @@ app.get('/identify', function(req, res){
     returnFaceId: true
   }).then(function (response) {
     for (var i = 0; i < response.length; i++) {
-      if(overlap(response[i].faceRectangle, rec) > 90){
+      if(overlap(response[i].faceRectangle, rec)){
         targetFaceId = response[i].faceId;
         break;
       }
@@ -203,7 +203,12 @@ app.get('/identify', function(req, res){
 });
 
 function overlap(rec1, rec2){
-  return 91;
+  console.log(rec1);
+  console.log(rec2);
+  if(rec1.top + "px" == rec2.top && rec1.left + "px" == rec2.left && rec1.width + "px" == rec2.width && rec1.height + "px" == rec2.height){
+      return true;
+  }
+  return false;
 }
 
 app.get('/check', function(req, res){
