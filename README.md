@@ -1,7 +1,7 @@
 # Mindful
 ![circles](http://i.imgur.com/bpoaGyI.png)
 
-*Suicide and depression are a huge deal.* Mindful wants to help with that.
+*Suicide and depression are a huge deal.* Mindful wants to help.
 
 Mindful uses IBM Watson & Microsoft APIs along with Twitter posts as a dataset in order to find signs of depression.
 
