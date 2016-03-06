@@ -2,15 +2,119 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Project Sadness </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.2/material.amber-orange.min.css" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script defer src="https://code.getmdl.io/1.1.2/material.min.js"></script>
+
+    <!-- Google fonts since Material UI just doesn't seem to care -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/highcharts/highcharts.js"></script>
     <script src="highcharts-unica-theme.js"></script>
     <script src="node_modules/urijs/src/URI.min.js"></script>
     <script src="node_modules/highcharts/modules/exporting.js"></script>
   </head>
+
   <body>
-    <div id="container" style="width:100%; height:400px;"></div>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+      </header>
+      <div class="mdl-layout__drawer">
+      </div>
+      <main class="mdl-layout__content">
+          <div class="page-content">
+          <div class="mdl-grid" style="margin-top:7%;">
+              <div class="mdl-cell mdl-cell--6-col">
+                  <div class="mdl-card mdl-shadow--2dp" style="max-width:100%;width:100%;">
+                      <div class="mdl-card__title">
+                          <h2 class="mdl-card__title-text">Negativity over time:</h2>
+                      </div>
+                      <div class="mdl-card__supporting-text">
+                          <div id="container" style="height:400px;"></div>
+                      </div>
+                  </div>
+              </div>
+              <!-- 4/4 -->
+              <div class="mdl-cell mdl-cell--6-col">
+                  <div class="mdl-card mdl-shadow--2dp four" style="max-width:100%;width:100%;">
+                      <div class="mdl-card__title">
+                          <h2 class="mdl-card__title-text">Your ranking:</h2>
+                      </div>
+                  <div class="mdl-card__actions mdl-card--border">
+                      <div class="mdl-card__subtitle-text" style="width:50%;">
+                          <span><h1 style="padding-left:16px;">4/4</h1><h4 style="padding-left:16px;">You're literally made of rainbows!</h4></span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- 3/4 -->
+              <div class="mdl-cell mdl-cell--6-col">
+                  <div class="mdl-card mdl-shadow--2dp four" style="max-width:100%;width:100%;">
+                      <div class="mdl-card__title">
+                          <h2 class="mdl-card__title-text">Your ranking:</h2>
+                      </div>
+                      <div class="mdl-card__actions mdl-card--border">
+                          <div class="mdl-card__subtitle-text" style="width:50%;">
+                              <span><h1 style="padding-left:16px;">3/4</h1><h4 style="padding-left:16px;">You have a few rough moments but that's a part of life</h4></span>
+                              <p style="padding-left:16px;"> Here's a good place to start adding more optimism in your life:
+                                  <ul>
+                                      <li><a href="https://chrome.google.com/webstore/detail/momentum/laookkfknpbbblfpciffpaejjkokdgca?hl=en" target="_blank">Momentum</a></li>
+                                 </ul>
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          <!-- 2/4 -->
+              <div class="mdl-cell mdl-cell--6-col">
+                  <div class="mdl-card mdl-shadow--2dp four" style="max-width:100%;width:100%;">
+                      <div class="mdl-card__title">
+                          <h2 class="mdl-card__title-text">Your ranking:</h2>
+                      </div>
+                      <div class="mdl-card__actions mdl-card--border">
+                          <div class="mdl-card__subtitle-text" style="width:50%;">
+                              <span><h1 style="padding-left:16px;">2/4</h1><h4 style="padding-left:16px;">You could potentially be depressed</h4></span>
+                              <p style="padding-left:16px;"> Here's some resources to inform you about depression:
+                              <ul>
+                                  <li><a href="http://www.webmd.com/depression/guide/detecting-depression" target="_blank">Detecting Depression</a></li>
+                                  <li><a href="http://www.normanrosenthal.com/blog/2012/03/seven-signs-of-a-depression/" target="_blank">Detecting Depression in loved ones/friends</a></li>
+                              </ul>
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          <!-- 1/4 -->
+              <div class="mdl-cell mdl-cell--6-col">
+                  <div class="mdl-card mdl-shadow--2dp four" style="max-width:100%;width:100%;">
+                      <div class="mdl-card__title">
+                          <h2 class="mdl-card__title-text">Your ranking:</h2>
+                      </div>
+                      <div class="mdl-card__actions mdl-card--border">
+                          <div class="mdl-card__subtitle-text" style="width:50%;">
+                              <span><h1 style="padding-left:16px;">1/4</h1><h4 style="padding-left:16px;">We are almost certain that you are depressed</h4></span>
+                              <p style="padding-left:16px;"> We're really concerned here about you, check these out:
+                              <ul>
+                                  <li><a href="http://www.webmd.com/depression/finding-happy-16/video-non-drug-depression-treatments" target="_blank">Holistic Depression Treatment</a></li>
+                                  <li><a href="http://www.webmd.com/depression/guide/depression-treatment-options" target="_blank">Treatment Options</a></li>
+                                  <li><a href="http://www.helpguide.org/articles/depression/helping-a-depressed-person.htm" target="_blank">Reaching Out to Loved Ones with Depression</a></li>
+                              </ul>
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+      </div>
+      </main>
+  </div>
+  </main>
     <script src="show.js"></script>
+  </div>
   </body>
 </html>
