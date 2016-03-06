@@ -27,14 +27,14 @@ Highcharts.theme = {
    },
    title: {
       style: {
-         color: '#E0E0E3',
+         color: '#606063',
          textTransform: 'uppercase',
          fontSize: '20px'
       }
    },
    subtitle: {
       style: {
-         color: '#E0E0E3',
+         color: '#606063',
          textTransform: 'uppercase'
       }
    },
@@ -73,7 +73,7 @@ Highcharts.theme = {
       }
    },
    tooltip: {
-      backgroundColor: 'rgba(0, 0, 0, 0.85)',
+      backgroundColor: '#012644',
       style: {
          color: '#F0F0F0'
       }
