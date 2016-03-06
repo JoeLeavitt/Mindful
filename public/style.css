@@ -113,6 +113,7 @@ body{
 }
 
 .profile-picture {
+    background-color: white;
     border: 1px white solid;
     border-radius: 14px;
     padding:25px;
@@ -179,4 +180,8 @@ body{
 
 .mdl-button--accent.mdl-button--accent.mdl-button--raised, .mdl-button--accent.mdl-button--accent.mdl-button--fab{
   background-color: rgb(255,193,7);
+}
+
+.score_panel {
+    display: none;
 }
