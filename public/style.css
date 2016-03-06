@@ -174,7 +174,7 @@ body{
 }
 
 #sticky_header{
-  background-color: #012644;
+  background-color: #155A76;
   color: white;
 }
 
@@ -184,4 +184,9 @@ body{
 
 .score_panel {
     display: none;
+}
+
+.other-header {
+  height: 200px;
+  background-color: #155A76;
 }
