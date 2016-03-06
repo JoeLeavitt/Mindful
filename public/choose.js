@@ -91,7 +91,6 @@ function recurse(arr, index){
                 rects.push(rect);
 
                 document.getElementById('image-rects-container').appendChild(rect);
-                //postition:absolute; top:10; left:10; width:50px; height:50px; border-style: solid; border-width: 5px;
             });
 
             $("#thatsnotrightbutton").click(function() {
@@ -110,6 +109,7 @@ function recurse(arr, index){
       }else{
         recurse(arr, index+1);
       }
+      $(".se-pre-con").fadeOut("slow");
   })
   .fail(function(jqXHR, textStatus, errorThrown) {
       console.log("HTTP Request Failed");
