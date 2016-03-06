@@ -30,7 +30,8 @@ function loadData() {
             console.log("ALL DATA: " + allData);
             $('#container').highcharts({
                 chart: {
-                    zoomType: 'x'
+                    zoomType: 'x',
+                    backgroundColor: "#FFFFFF"
                 },
                 title: {
                     text: ''
@@ -41,7 +42,7 @@ function loadData() {
                 },
                 yAxis: {
                     title: {
-                        text: 'Exchange rate'
+                        text: 'Negativity Quotient'
                     },
                     plotLines: [{
                         color: 'red',
@@ -62,7 +63,7 @@ function loadData() {
                 },
                 series: [{
                     type: 'area',
-                    name: 'sadness',
+                    name: 'Negativity Quotient',
                     data: allData.map(function (data) {
                         if (data.scores) {
                             return [Date.parse(data.time), data.scores.sadness * 100];
@@ -72,17 +73,22 @@ function loadData() {
                 }]
             });
 
-            if (params.data.avg < 25) {
+            if (params.data.avg*100 < 15) {
+              console.log("we in here");
                 $('#4_panel').toggle();
+                $('#four').toggle();
             }
-            else if (params.data.avg < 50) {
+            else if (params.data.avg*100 < 50) {
                 $('#3_panel').toggle();
+                $('#three').toggle();
             }
-            else if (params.data.avg < 75) {
+            else if (params.data.avg*100 < 75) {
                 $('#2_panel').toggle();
+                $('#two').toggle();
             }
             else {
                 $('#1_panel').toggle();
+                $('#one').toggle();
             }
 
             console.log(allData);
