@@ -84,7 +84,7 @@ function recurse(arr, index){
                         width: face.faceRectangle.width,
                         height: face.faceRectangle.height
                     }
-                    activeNavBar = "/show.html?url=" + arr.images[index].url + "&rec=" + JSON.stringify(rectObj) + "&data=" + JSON.stringify(arr);
+                    activeNavBar = "/show.html?url=" + arr.images[index].url + "&rec=" + JSON.stringify(rectObj) + "&data=" + JSON.stringify(arr) + "&user=" + params.username;
 
                     rects.forEach(function(r) {
                         console.log(r);
