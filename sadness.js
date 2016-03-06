@@ -98,10 +98,31 @@ app.get('/go', function (req, res) {
          watsonData.push(temp);
     }
 
+    var total = 0;
+    var avgSadness = 0;
+    var relativeAvgDeviation = 0;
     Promise.all(watsonData).then(function(data){
         responseJSON.data = data;
+
+        for(var i = 0; i < data.length; i++){
+            total += data[i].sadness;
+        }
+
+        avgSadness = total / data.length;
+        total = 0;
+        for(var i = 0; i < data.length; i++){
+            total += Math.abs(data[i].sadness - avgSadness);
+        }
+
+        relativeAvgDeviation = (avgSadness / total) * 100;
+
+        console.log(avgSadness);
+        console.log(relativeAvgDeviation);
+
         res.send(responseJSON);
     })
+
+    console.log(avgSadness);
 
   });
 });
@@ -114,7 +135,6 @@ app.get('/identify', function(req, res){
   var url = req.query.url;
   var rec = req.query.rec;
   var images = (typeof req.query.images == "string") ? JSON.parse(req.query.images) : req.query.images;
-  console.log(images);
 
   var targetFaceId = "";
   var faceIDs = [];
@@ -135,7 +155,6 @@ app.get('/identify', function(req, res){
     }
 
     var count = 0;
-    console.log(images);
     return Promise.all(images.map(function(imageObj){
       count++;
       if(count >= 18) return;
@@ -157,7 +176,6 @@ app.get('/identify', function(req, res){
           candidateFaces: faceIDs
         });
     }).then(function(res){
-      console.log(res);
       return Promise.all(res.map(function(face){
         var str = faceRects[face.faceId].left + ", " + faceRects[face.faceId].top + ", " + faceRects[face.faceId].width + ", " + faceRects[face.faceId].height;
 
