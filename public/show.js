@@ -47,7 +47,9 @@ jQuery.ajax({
                 value: thisAvg,
                 width: '2',
                 zIndex: '2'
-            }]
+            }],
+            min: 0,
+            max: 1
         },
         legend: {
             enabled: false
