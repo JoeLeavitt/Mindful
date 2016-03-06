@@ -6,21 +6,64 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.1.2/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.2/material.amber-orange.min.css" />
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script defer src="https://code.getmdl.io/1.1.2/material.min.js"></script>
+
+    <!-- Google fonts since Material UI just doesn't seem to care -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+
+    <!-- Adobe typekit -->
+    <script>
+        (function(d) {
+            var config = {
+                        kitId: 'zdm1mkm',
+                        scriptTimeout: 3000,
+                        async: true
+                    },
+                    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+    </script>
+
 </head>
 
-<header>
-    <div class="box">
+<div class="landing">
+    <header div class="search">
+        <div class="title">Mindful</div>
+        <div class="subtitle">Track your words to improve your thoughts</div>
         <div class="container-1">
             <span class="icon"><i class="fa fa-search"></i></span>
             <input type="search" id="search" placeholder="Search for Twitter user..." onkeydown="search(this)" />
         </div>
-    </div>
-</header>
+        <br>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect hitme" type="button" id="show-error">
+        Search
+        </button>
+        <div id="error-show" class="mdl-js-snackbar mdl-snackbar">
+            <div class="mdl-snackbar__text"></div>
+            <button class="mdl-snackbar__action" type="button"></button>
+        </div>
+        <script>
+            (function() {
+                'use strict';
+                window['counter'] = 0;
+                var snackbarContainer = document.querySelector('#error-show');
+                var showToastButton = document.querySelector('#show-error');
+                showToastButton.addEventListener('click', function() {
+                    'use strict';
+                    var data = {message: 'User Not Found '};
+                    snackbarContainer.MaterialSnackbar.showSnackbar(data);
+                });
+            }());
+        </script>
+    </header>
+</div>
+
+<div class="feet">
+
+</div>
 
     <script src="client.js"></script>
 </html>
