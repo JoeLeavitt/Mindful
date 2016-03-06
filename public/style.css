@@ -113,6 +113,7 @@ body{
 }
 
 .profile-picture {
+    background-color: white;
     border: 1px white solid;
     border-radius: 14px;
     padding:25px;
@@ -151,6 +152,7 @@ body{
 
 #face-copy {
     z-index: 10;
+    line-height: 40px;
 }
 
 .no-js #loader { display: none;  }
@@ -163,4 +165,8 @@ body{
     height: 100%;
     z-index: 9999;
     background: url(./imgs/loader.gif) center no-repeat #fff;
+}
+
+.score_panel {
+    display: none;
 }

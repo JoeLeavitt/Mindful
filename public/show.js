@@ -24,8 +24,8 @@ jQuery.ajax({
     // console.log(data);
 
     var allData = data.concat(params.data.data);
-    var thisAvg = params.data.avg;
-    var thisStdDev = params.data.stddev;
+    var thisAvg = params.data.avg * 100;
+    var thisStdDev = params.data.stddev * 100;
   console.log("ALL DATA: " + allData);
     $('#container').highcharts({
         chart: {
@@ -55,7 +55,7 @@ jQuery.ajax({
                 zIndex: '2'
             }],
             min: 0,
-            max: 1
+            max: 100
         },
         legend: {
             enabled: false
@@ -65,12 +65,18 @@ jQuery.ajax({
             name: 'sadness',
             data: allData.map(function(data){
               if(data.scores){
-                return [Date.parse(data.time), data.scores.sadness];
+                return [Date.parse(data.time), data.scores.sadness*100];
               }
-              return [Date.parse(data.time), data.sadness];
+              return [Date.parse(data.time), data.sadness*100];
             })
         }]
     });
+
+    var panel = Math.ceil(100 - (params.data.avg / 25));
+
+    $('#container').fadeIn('slow');
+    $('#'+panel+'_panel').fadeIn('slow');
+
     console.log(allData);
 });
 
