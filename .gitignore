@@ -38,4 +38,6 @@ jspm_packages
 
 # secret
 keys.json
-node_modules
+
+# IDE
+.idea
