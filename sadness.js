@@ -117,8 +117,6 @@ app.get('/go', function (req, res) {
 
         relativeAvgDeviation = (avgSadness / total) * 100;
 
-        console.log(avgSadness);
-        console.log(relativeAvgDeviation);
         responseJSON.avg = avgSadness;
         responseJSON.stddev = relativeAvgDeviation;
 
@@ -141,6 +139,11 @@ app.get('/identify', function(req, res){
   var faceRects = {};
   var faceIdToImage = {};
 
+  if(!url){
+    res.send([]);
+    return;
+  }
+
   faceAPI.face.detect({
     url: url,
     analyzesAge: true,
@@ -157,7 +160,7 @@ app.get('/identify', function(req, res){
     var count = 0;
     return Promise.all(images.map(function(imageObj){
       count++;
-      if(count >= 18) return;
+      if(count >= 18) return 0;
       return faceAPI.face.detect({
         url: imageObj.url,
         analyzesAge: true,

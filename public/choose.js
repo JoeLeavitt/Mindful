@@ -20,6 +20,8 @@ jQuery.ajax({
       recurse(data, 0);
     }else{
       //redirect to results
+      var nav = "/show.html?data=" + JSON.stringify(data);
+      window.location.href = nav;
     }
 })
 .fail(function(jqXHR, textStatus, errorThrown) {
@@ -30,7 +32,10 @@ jQuery.ajax({
 });
 
 function recurse(arr, index){
-  if(index >= arr.images.length) return;
+  if(index >= arr.images.length){
+    var nav = "/show.html?data=" + JSON.stringify(arr);
+    window.location.href = nav;
+  }
   jQuery.ajax({
     url: "http://localhost:3000/check",
     type: "GET",
