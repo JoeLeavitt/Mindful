@@ -117,14 +117,13 @@ body{
     border-radius: 14px;
     padding:25px;
     position: absolute;
-    top: 40%;
+    /*top: 40%;*/
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    max-width: 75%;
+    transform: translate(-50%, 0%);
 }
 
 .mdl-layout-title{
@@ -146,5 +145,10 @@ body{
 }
 
 .clickme {
-   margin-top:45vh;
+   /*margin-top:45vh;*/
+    position: relative;
+}
+
+#face-copy {
+    z-index: 10;
 }
