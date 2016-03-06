@@ -142,6 +142,10 @@ app.get('/identify', function(req, res){
   var faceRects = {};
   var faceIdToImage = {};
 
+  if(!url){
+    res.send([]);
+  }
+
   faceAPI.face.detect({
     url: url,
     analyzesAge: true,
@@ -158,7 +162,7 @@ app.get('/identify', function(req, res){
     var count = 0;
     return Promise.all(images.map(function(imageObj){
       count++;
-      if(count >= 18) return;
+      if(count >= 18) return 0;
       return faceAPI.face.detect({
         url: imageObj.url,
         analyzesAge: true,

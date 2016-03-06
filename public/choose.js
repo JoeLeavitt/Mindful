@@ -20,6 +20,8 @@ jQuery.ajax({
       recurse(data, 0);
     }else{
       //redirect to results
+      var nav = "/show.html?data=" + JSON.stringify(data);
+      window.location.href = nav;
     }
 })
 .fail(function(jqXHR, textStatus, errorThrown) {
