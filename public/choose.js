@@ -93,37 +93,8 @@ function recurse(arr, index){
                 }
                 rects.push(rect);
 
-<<<<<<< HEAD
-        data.forEach(function(face, index){
-          var rect = document.createElement("div");
-          rect.id = "rect" + index;
-          rect.style.position = "absolute";
-          rect.style.top = face.faceRectangle.top;
-          rect.style.left = face.faceRectangle.left;
-          rect.style.width = face.faceRectangle.width + "px";
-          rect.style.height = face.faceRectangle.height + "px";
-          rect.style.borderStyle = "solid";
-          rect.style.borderWidth = "5px";
-          rect.onclick = function(){
-            this.onclick = function(){};
-
-            console.log(this.id);
-            var rectObj = {
-              top: rect.style.top,
-              left: rect.style.left,
-              width: rect.style.width,
-              height: rect.style.height
-            }
-
-            var nav = "/show.html?url=" + arr.images[index].url + "&rec=" + JSON.stringify(rectObj) + "&data=" + JSON.stringify(arr);
-            window.location.href = nav;
-
-          }
-=======
                 document.getElementById('image-rects-container').appendChild(rect);
-                //postition:absolute; top:10; left:10; width:50px; height:50px; border-style: solid; border-width: 5px;
             });
->>>>>>> f54f39ea7538e4b0f3d19211c05571ea32845382
 
             $("#thatsnotrightbutton").click(function() {
                 console.log("WE'VE GOT A PROBLEM OFFICER");
@@ -136,16 +107,13 @@ function recurse(arr, index){
                 window.location.href = activeNavBar;
             })
 
-<<<<<<< HEAD
-=======
         }, 100);
 
->>>>>>> f54f39ea7538e4b0f3d19211c05571ea32845382
       }else{
         recurse(arr, index+1);
       }
-                $(".se-pre-con").fadeOut("slow");;
 
+      $(".se-pre-con").fadeOut("slow");
   })
   .fail(function(jqXHR, textStatus, errorThrown) {
       console.log("HTTP Request Failed");
