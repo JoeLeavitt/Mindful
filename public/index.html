@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="style.css">
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script defer src="https://code.getmdl.io/1.1.2/material.min.js"></script>
+    <script src="client.js"></script>
+
 
     <!-- Google fonts since Material UI just doesn't seem to care -->
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
@@ -35,7 +37,7 @@
         <div class="subtitle">Track your words to improve your thoughts</div>
         <div class="container-1">
             <span class="icon"><i class="fa fa-search"></i></span>
-            <input type="search" id="search" placeholder="Search for Twitter user..." onkeydown="search(this)" />
+            <input type="search" id="search" placeholder="Search for Twitter user..." />
         </div>
         <br>
         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect hitme" type="button" id="show-error">
@@ -45,19 +47,7 @@
             <div class="mdl-snackbar__text"></div>
             <button class="mdl-snackbar__action" type="button"></button>
         </div>
-        <script>
-            (function() {
-                'use strict';
-                window['counter'] = 0;
-                var snackbarContainer = document.querySelector('#error-show');
-                var showToastButton = document.querySelector('#show-error');
-                showToastButton.addEventListener('click', function() {
-                    'use strict';
-                    var data = {message: 'User Not Found '};
-                    snackbarContainer.MaterialSnackbar.showSnackbar(data);
-                });
-            }());
-        </script>
+
     </header>
 </div>
 
@@ -65,5 +55,4 @@
 
 </div>
 
-    <script src="client.js"></script>
 </html>

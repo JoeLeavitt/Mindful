@@ -109,6 +109,8 @@ function recurse(arr, index){
                 window.location.href = activeNavBar;
             })
 
+            $(window).trigger('resize');
+
         }, 100);
 
       }else{
