@@ -19,39 +19,39 @@
 </head>
 
 <body>
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" >
+    <header class="mdl-layout__header" id="sticky_header">
+        <div class="mdl-cell mdl-cell--12-col header" id="face-copy"></div>
     </header>
     <div class="mdl-layout__drawer">
     </div>
     <main class="mdl-layout__content">
         <div class="page-content">
             <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--4-col"></div>
-                <div class="mdl-cell mdl-cell--4-col header">Who is @?</div>
-                <div class="mdl-cell mdl-cell--4-col"></div>
-            </div>
-            <div class="mdl-grid">
                 <div id="image-rects-container" class="container mdl-cell mdl-cell--10">
-                    <img class="profile-picture" src="http://www.articlewritingsource.com/wp-content/uploads/2015/10/Get-more-the-men-women-and-children-of-a-particular-nation-community-or-ethnic-group.-to-stop-by-your-website.jpg" alt="">
+                    <!--<img class="profile-picture" src="http://www.articlewritingsource.com/wp-content/uploads/2015/10/Get-more-the-men-women-and-children-of-a-particular-nation-community-or-ethnic-group.-to-stop-by-your-website.jpg" alt="">-->
                 </div>
             </div>
         </div>
         <span>
             <div class="mdl-grid clickme">
                 <div class="mdl-cell mdl-cell--2-col mdl-cell--4-offset-desktop">
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    <button id="thatsnotrightbutton" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                         That's not right
                     </button>
                 </div>
                 <div class="mdl-cell mdl-cell--1-col"></div>
                 <div class="mdl-cell mdl-cell--2-col">
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    <button id="continuebutton" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                         Continue
                     </button>
                 </div>
             </div>
         </span>
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--4-col"></div>
+            <div class="mdl-cell mdl-cell--4-col"></div>
+        </div>
     </main>
 </div>
 <script src="choose.js"></script>
