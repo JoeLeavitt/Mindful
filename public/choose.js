@@ -72,6 +72,15 @@ function recurse(arr, index){
           document.getElementById('image-rects-container').appendChild(rect);
           //postition:absolute; top:10; left:10; width:50px; height:50px; border-style: solid; border-width: 5px;
         });
+
+        if(data.length == 1) {
+            document.getElementById('header').innerHTML = "Is this @"+params.username+"?";
+        }
+
+        else {
+            document.getElementById('header').innerHTML = "Which one is @"+params.username+"?";
+        }
+
       }else{
         recurse(arr, index+1);
       }
