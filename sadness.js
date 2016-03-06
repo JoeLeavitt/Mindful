@@ -117,14 +117,11 @@ app.get('/go', function (req, res) {
 
         relativeAvgDeviation = (avgSadness / total) * 100;
 
-        console.log(avgSadness);
-        console.log(relativeAvgDeviation);
+        responseJSON.avg = avgSadness;
+        responseJSON.stddev = relativeAvgDeviation;
 
         res.send(responseJSON);
     })
-
-    console.log(avgSadness);
-
   });
 });
 
@@ -207,7 +204,6 @@ app.get('/identify', function(req, res){
 function overlap(rec1, rec2){
   return 91;
 }
-
 
 app.get('/check', function(req, res){
     console.log(req.query.url);
