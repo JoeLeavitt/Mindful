@@ -77,10 +77,10 @@ function recurse(arr, index){
                 rect.style.borderWidth = "5px";
                 rect.onclick = function(){
                     var rectObj = {
-                        top: rect.style.top,
-                        left: rect.style.left,
-                        width: rect.style.width,
-                        height: rect.style.height
+                        top: face.faceRectangle.top,
+                        left: face.faceRectangle.left,
+                        width: face.faceRectangle.width,
+                        height: face.faceRectangle.height
                     }
                     activeNavBar = "/show.html?url=" + arr.images[index].url + "&rec=" + JSON.stringify(rectObj) + "&data=" + JSON.stringify(arr);
 

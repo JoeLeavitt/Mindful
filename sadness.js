@@ -143,6 +143,7 @@ app.get('/identify', function(req, res){
     res.send([]);
     return;
   }
+  console.log(url);
 
   faceAPI.face.detect({
     url: url,
@@ -160,25 +161,32 @@ app.get('/identify', function(req, res){
     var count = 0;
     return Promise.all(images.map(function(imageObj){
       count++;
-      if(count >= 18) return 0;
+      if(count >= 10) return 0;
       return faceAPI.face.detect({
         url: imageObj.url,
         analyzesAge: true,
         analyzesGender: true,
         returnFaceId: true
       }).then(function(res){
-        res.forEach(function(face){
-          faceIDs.push(face.faceId);
-          faceRects[face.faceId] = face.faceRectangle;
-          faceIdToImage[face.faceId] = imageObj;
-        });
+        console.log(typeof res + " " + Array.isArray(res));
+        if(res.length > 0){
+          res.forEach(function(face){
+            faceIDs.push(face.faceId);
+            faceRects[face.faceId] = face.faceRectangle;
+            faceIdToImage[face.faceId] = imageObj;
+          });
+        }
+      }).catch(function(err){
+        console.log(err);
       });
     })).then(function(){
+      console.log("FACE" + targetFaceId)
       return faceAPI.face.similar(
         targetFaceId, {
           candidateFaces: faceIDs
         });
     }).then(function(res){
+      console.log("AHHH" + res);
       return Promise.all(res.map(function(face){
         var str = faceRects[face.faceId].left + ", " + faceRects[face.faceId].top + ", " + faceRects[face.faceId].width + ", " + faceRects[face.faceId].height;
 
@@ -199,13 +207,15 @@ app.get('/identify', function(req, res){
     }).catch(function(err){
       console.log(err);
     });
+  }).catch(function(err){
+    console.log(err);
   });
 });
 
 function overlap(rec1, rec2){
   console.log(rec1);
   console.log(rec2);
-  if(rec1.top + "px" == rec2.top && rec1.left + "px" == rec2.left && rec1.width + "px" == rec2.width && rec1.height + "px" == rec2.height){
+  if(rec1.top == rec2.top && rec1.left == rec2.left && rec1.width == rec2.width && rec1.height == rec2.height){
       return true;
   }
   return false;

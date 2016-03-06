@@ -21,11 +21,12 @@ jQuery.ajax({
     },
 })
 .done(function(data, textStatus, jqXHR) {
-    console.log(data);
+    // console.log(data);
 
     var allData = data.concat(params.data.data);
     var thisAvg = params.data.avg;
     var thisStdDev = params.data.stddev;
+  console.log("ALL DATA: " + allData);
     $('#container').highcharts({
         chart: {
             zoomType: 'x'
