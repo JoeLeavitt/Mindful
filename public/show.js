@@ -24,11 +24,13 @@ function loadData() {
             },
         })
         .done(function (data, textStatus, jqXHR) {
-            // console.log(data);
 
             var allData = data.concat(params.data.data);
             var thisAvg = params.data.avg * 100;
             var thisStdDev = params.data.stddev * 100;
+            var thisciCeil = params.data.cvCeil;
+            var thisciFloor = params.data.cvFloor;
+
             console.log("ALL DATA: " + allData);
             $('#container').highcharts({
                 chart: {
@@ -76,7 +78,6 @@ function loadData() {
             });
 
             if (params.data.avg*100 < 15) {
-              console.log("we in here");
                 $('#4_panel').toggle();
                 $('#four').toggle();
             }
@@ -92,6 +93,9 @@ function loadData() {
                 $('#1_panel').toggle();
                 $('#one').toggle();
             }
+
+            $(".conf h4").text("Confidence Interval: " + thisciFloor + " - "
+                           + thisciCeil);
 
             console.log(allData);
         });

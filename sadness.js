@@ -117,6 +117,20 @@ app.get('/go', function (req, res) {
 
         relativeAvgDeviation = (avgSadness / total) * 100;
 
+        total = 0;
+        for(var i = 0; i < data.length; i++){
+            var val = Math.pow((data[i].sadness - avgSadness), 2);
+            total += val;
+        }
+
+        var stdDev = Math.sqrt(total / data.length);
+        var stderr = stdDev / Math.sqrt(data.length);
+        var margin = stderr * 2;
+        var ciCeil = (avgSadness + margin).toFixed(3);
+        var ciFloor = (avgSadness - margin).toFixed(3);
+
+        responseJSON.cvCeil = ciCeil * 100;
+        responseJSON.cvFloor = ciFloor * 100;
         responseJSON.avg = avgSadness;
         responseJSON.stddev = relativeAvgDeviation;
 
